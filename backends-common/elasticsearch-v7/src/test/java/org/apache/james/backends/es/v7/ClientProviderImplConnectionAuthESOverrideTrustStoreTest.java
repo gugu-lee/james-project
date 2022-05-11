@@ -25,24 +25,24 @@ import org.apache.james.backends.es.v7.ElasticSearchConfiguration.SSLConfigurati
 import org.apache.james.backends.es.v7.ElasticSearchConfiguration.SSLConfiguration.SSLTrustStore;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class ClientProviderImplConnectionAuthESOverrideTrustStoreTest implements ClientProviderImplConnectionContract {
-
-    private static final String TRUST_STORE_PASSWORD = "mypass";
-    private static final String TRUST_STORE_FILE_PATH = "src/test/resources/auth-es/server.jks";
-
-    @RegisterExtension
-    static ElasticSearchClusterExtension extension = new ElasticSearchClusterExtension(new ElasticSearchClusterExtension.ElasticSearchCluster(
-        DockerAuthElasticSearchSingleton.INSTANCE,
-        new DockerElasticSearch.WithAuth()));
-
-    @Override
-    public ElasticSearchConfiguration.Builder configurationBuilder() {
-        return ElasticSearchConfiguration.builder()
-            .credential(Optional.of(DockerElasticSearch.WithAuth.DEFAULT_CREDENTIAL))
-            .hostScheme(Optional.of(ElasticSearchConfiguration.HostScheme.HTTPS))
-            .sslTrustConfiguration(SSLConfiguration.builder()
-                .strategyOverride(SSLTrustStore.of(TRUST_STORE_FILE_PATH, TRUST_STORE_PASSWORD))
-                .acceptAnyHostNameVerifier()
-                .build());
-    }
-}
+// public class ClientProviderImplConnectionAuthESOverrideTrustStoreTest implements ClientProviderImplConnectionContract {
+//
+//     private static final String TRUST_STORE_PASSWORD = "mypass";
+//     private static final String TRUST_STORE_FILE_PATH = "src/test/resources/auth-es/server.jks";
+//
+//     @RegisterExtension
+//     static ElasticSearchClusterExtension extension = new ElasticSearchClusterExtension(new ElasticSearchClusterExtension.ElasticSearchCluster(
+//         DockerAuthElasticSearchSingleton.INSTANCE,
+//         new DockerElasticSearch.WithAuth()));
+//
+//     @Override
+//     public ElasticSearchConfiguration.Builder configurationBuilder() {
+//         return ElasticSearchConfiguration.builder()
+//             .credential(Optional.of(DockerElasticSearch.WithAuth.DEFAULT_CREDENTIAL))
+//             .hostScheme(Optional.of(ElasticSearchConfiguration.HostScheme.HTTPS))
+//             .sslTrustConfiguration(SSLConfiguration.builder()
+//                 .strategyOverride(SSLTrustStore.of(TRUST_STORE_FILE_PATH, TRUST_STORE_PASSWORD))
+//                 .acceptAnyHostNameVerifier()
+//                 .build());
+//     }
+// }
