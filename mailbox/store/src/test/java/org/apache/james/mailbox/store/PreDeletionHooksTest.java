@@ -17,7 +17,7 @@
 //  * under the License.                                           *
 //  ****************************************************************/
 //
-// package org.apache.james.mailbox.store;
+package org.apache.james.mailbox.store;
 //
 // import static org.apache.james.mailbox.store.PreDeletionHooks.PRE_DELETION_HOOK_METRIC_NAME;
 // import static org.assertj.core.api.Assertions.assertThat;
