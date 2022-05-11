@@ -4,7 +4,7 @@
 name: fork james
 
 on:
-  release:
+  push:
     types: [created]
 
 jobs:
